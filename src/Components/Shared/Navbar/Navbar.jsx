@@ -1,70 +1,97 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
-import { Link } from 'react-router';
+import { FaGithub } from "react-icons/fa";
+import { NavLink, Link } from "react-router";
+import Logo from "../../../assets/logo.png";
 
 const Navbar = () => {
-    return (
-      <div>
-        <div className="navbar bg-base-100 shadow-sm max-w-7xl mx-auto px-6">
-          <div className="navbar-start ">
-            <div className="dropdown">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost lg:hidden"
+  const navClass = ({ isActive }) =>
+    isActive
+      ? "text-[#6C4CF1] font-semibold border-b-[3px] border-[#6C4CF1] pb-2"
+      : "text-[#4B5563] hover:text-[#6C4CF1] border-b-[3px] border-transparent pb-2 transition";
+
+  return (
+    <header className="bg-white border-b border-gray-100">
+      <div className="navbar max-w-7xl mx-auto h-20 px-6 lg:px-10">
+        {/* Left */}
+        <div className="navbar-start">
+          {/* Mobile */}
+          <div className="dropdown lg:hidden">
+            <div tabIndex={0} role="button" className="btn btn-ghost px-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  {" "}
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h8m-8 6h16"
-                  />{" "}
-                </svg>
-              </div>
-              <ul
-                tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-              >
-                <li>
-                  <Link to={"/"}> Home </Link>
-                </li>
-                <li>
-                  <Link to={"/apps"}> Apps </Link>
-                </li>
-                <li>
-                  <Link to={"/installedapps"}> Installation </Link>
-                </li>
-              </ul>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
             </div>
-            <a className="btn btn-ghost text-xl">HERO.IO</a>
-          </div>
-          <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
+
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 w-52 rounded-xl bg-white shadow-lg z-50"
+            >
               <li>
-                <Link to={"/"}> Home </Link>
+                <NavLink to="/">Home</NavLink>
               </li>
+
               <li>
-                <Link to={"/apps"}> Apps </Link>
+                <NavLink to="/apps">Apps</NavLink>
               </li>
+
               <li>
-                <Link to={"/installedapps"}> Installation </Link>
+                <NavLink to="/installedapps">Installation</NavLink>
               </li>
             </ul>
           </div>
-          <div className="navbar-end">
-            <a className="btn">Contribute</a>
-          </div>
+
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2">
+            <img src={Logo} alt="Logo" className="h-10 w-10" />
+            <h2 className="text-xl font-bold tracking-wide text-[#4F46E5]">
+              HERO.IO
+            </h2>
+          </Link>
+        </div>
+
+        {/* Center */}
+        <div className="navbar-center hidden lg:flex">
+          <ul className="flex items-center gap-10 text-[15px]">
+            <li>
+              <NavLink className={navClass} to="/">
+                Home
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink className={navClass} to="/apps">
+                Apps
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink className={navClass} to="/installedapps">
+                Installation
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* Right */}
+        <div className="navbar-end">
+          <button className="btn h-11 px-6 bg-[#6C4CF1] hover:bg-[#5B3FE4] border-none text-white rounded-md shadow-none">
+            <FaGithub className="text-lg" />
+            Contribute
+          </button>
         </div>
       </div>
-    );
+    </header>
+  );
 };
 
 export default Navbar;
