@@ -4,7 +4,7 @@ import { FaAppStoreIos } from "react-icons/fa";
 const Hero = () => {
   return (
     <section className="bg-[#F8F8F8]">
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-10">
+      <div className="max-w-7xl mx-auto px-6 pt-24">
         {/* Text */}
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-[64px] leading-18 font-bold text-[#0B2341]">
