@@ -1,6 +1,6 @@
 const StatusCard = () => {
   return (
-    <section className="bg-gradient-to-r from-[#7C3AED] to-[#A855F7] py-16">
+    <section className="bg-linear-to-r from-[#7C3AED] to-[#A855F7] py-16">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <h2 className="text-center text-white text-5xl font-bold mb-14">
