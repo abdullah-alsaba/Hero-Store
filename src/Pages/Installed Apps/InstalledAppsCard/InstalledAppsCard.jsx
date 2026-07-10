@@ -1,8 +1,21 @@
+import { useContext } from "react";
 import Download from "../../../assets/icon-downloads.png";
 import Rating from "../../../assets/icon-ratings.png";
+import { InstalledAppsContext } from "../../../Context/InstalledAppsContextProvider/InstalledAppsContextProvider";
 
 const InstalledAppsCard = ({ installedApp }) => {
-  const { image, title, downloads, ratingAvg, size } = installedApp;
+    const { image, title, downloads, ratingAvg, size } = installedApp;
+
+      const {install , setInstall
+        }= useContext(InstalledAppsContext)
+
+   
+    
+    const handelUninstallButton = (id) => {
+        const unInstallApp = install.filter((app) => app.id !== id);
+        setInstall(unInstallApp)
+        
+    }
 
   return (
     <div className="bg-white rounded-md px-5 py-4 flex items-center justify-between shadow-sm border border-gray-100 mb-4">
@@ -37,7 +50,7 @@ const InstalledAppsCard = ({ installedApp }) => {
       </div>
 
       {/* Right Side */}
-      <button className="bg-[#08D693] hover:bg-[#06c583] transition text-white font-semibold px-7 py-3 rounded-md">
+      <button className="bg-[#08D693] hover:bg-[#06c583] transition text-white font-semibold px-7 py-3 rounded-md" onClick={()=>{handelUninstallButton(installedApp.id)}}>
         Uninstall
       </button>
     </div>
