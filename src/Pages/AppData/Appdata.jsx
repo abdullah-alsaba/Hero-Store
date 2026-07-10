@@ -4,6 +4,7 @@ import Loader from "../../Components/Shared/Loader/Loader"
 import { useParams } from "react-router";
 import useAppsFetch from "../../Hooks/useAppsFetch";
 import AppDataCard from "./AppDataCard/AppDataCard";
+import AppNotFound from "../AppNotFound/AppNotFound";
 
 const Appdata = () => {
 
@@ -12,11 +13,15 @@ const Appdata = () => {
 
     const { apps, loading} = useAppsFetch();
    
+    
+      if (loading) {
+        return <Loader></Loader>;
+      }
 
-    const expectedApp = apps.find((app) => app.id == appid);
-
-  if (loading) {
-    return <Loader></Loader>;
+  const expectedApp = apps.find((app) => app.id == appid);
+  
+  if (!expectedApp) {
+   return <AppNotFound></AppNotFound>
   }
 
     
