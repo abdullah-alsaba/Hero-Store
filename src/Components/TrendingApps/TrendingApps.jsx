@@ -2,14 +2,19 @@ import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import AppCard from "../Ui/Apps/AppCard";
 
+import Loader from "../Shared/Loader/Loader"
+
 const TrendingApps = () => {
-  const [apps, setApps] = useState([]);
+    const [apps, setApps] = useState([]);
+    
+    const [loading, setLoading]= useState(true) 
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/data.json");
       const data = await res.json();
-      setApps(data);
+        setApps(data);
+        setLoading(false)
     };
 
     fetchData();
@@ -27,11 +32,11 @@ const TrendingApps = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+      {loading? <Loader></Loader> :<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
         {apps.slice(0, 8).map((app) => (
           <AppCard key={app.id} app={app} />
         ))}
-      </div>
+      </div>}
 
       {/* Button */}
       <div className="flex justify-center mt-14">
