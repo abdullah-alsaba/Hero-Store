@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Download from "../../../assets/icon-downloads.png";
 import Rating from "../../../assets/icon-ratings.png";
 import { InstalledAppsContext } from "../../../Context/InstalledAppsContextProvider/InstalledAppsContextProvider";
+import { toast } from "react-toastify";
 
 const InstalledAppsCard = ({ installedApp }) => {
     const { image, title, downloads, ratingAvg, size } = installedApp;
@@ -14,6 +15,7 @@ const InstalledAppsCard = ({ installedApp }) => {
     const handelUninstallButton = (id) => {
         const unInstallApp = install.filter((app) => app.id !== id);
         setInstall(unInstallApp)
+        toast.success(`${title} is successfully uninstalled`)
         
     }
 

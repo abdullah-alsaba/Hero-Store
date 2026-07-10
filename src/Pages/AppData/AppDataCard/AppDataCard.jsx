@@ -12,6 +12,7 @@ import Reviews from "../../../assets/icon-review.png";
 import Ratings from "../../../assets/icon-ratings.png";
 import { useContext } from "react";
 import { InstalledAppsContext } from "../../../Context/InstalledAppsContextProvider/InstalledAppsContextProvider";
+import { toast } from "react-toastify";
 
 const AppDataCard = ({ expectedApp }) => {
   const {
@@ -33,10 +34,11 @@ const AppDataCard = ({ expectedApp }) => {
 
   const handelInstall=() => {
     if (existedApps) {
-      alert("the app is already installed ")
+      toast.error(`${title} is already installed`);
       return
     } else {
-           setInstall([...install, expectedApp]);
+      setInstall([...install, expectedApp]);
+      toast.success(`${title} is successfully installed`)
 
   }
     
