@@ -1,16 +1,101 @@
-# React + Vite
+# 🚀 HERO.IO - Hero Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React-based App Store where users can explore trending applications, view detailed app information, install apps, and manage their installed collection. Built with a clean, responsive UI inspired by modern app marketplaces.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 https://hero-store-pied.vercel.app/
 
-## React Compiler
+## 📂 GitHub Repository
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔗 https://github.com/abdullah-alsaba/Hero-Store
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- 🏠 Beautiful and responsive landing page
+- 📱 Browse all available apps
+- 🔍 View detailed information for each app
+- 📥 Install apps with a single click
+- 🚫 Prevent duplicate app installation
+- 📊 Interactive ratings chart using Recharts
+- ⭐ Display downloads, ratings, and reviews
+- 🔔 Toast notifications for user actions
+- ❌ Custom 404 Error Page
+- 🚫 Custom App Not Found page
+- 📱 Fully responsive design
+
+---
+
+## 🛠️ Technologies Used
+
+- React
+- React Router
+- Tailwind CSS
+- DaisyUI
+- React Icons
+- Recharts
+- React Toastify
+- Context API
+
+---
+
+## 📦 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/abdullah-alsaba/Hero-Store.git
+```
+
+Go to the project directory
+
+```bash
+cd Hero-Store
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 📁 Project Structure
+
+```
+src
+│
+├── assets
+├── Components
+├── Context
+├── Hooks
+├── Layout
+├── Pages
+├── Routes
+├── index.css
+└── main.jsx
+```
+
+---
+
+## 👨‍💻 Author
+
+**Abdulla Al Saba**
+
+- GitHub: https://github.com/abdullah-alsaba
+- Portfolio: https://abdulla.pro.bd/
+
+---
+
+## 📄 License
+
+This project was built for learning purposes as part of my React development journey.
