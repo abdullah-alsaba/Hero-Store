@@ -14,7 +14,7 @@ const AppCard = ({ app }) => {
       </div>
 
       {/* Title */}
-      <h3 className="mt-4 text-[20px] font-semibold text-[#0A2342] line-clamp-2 min-h-[56px]">
+      <h3 className="mt-4 text-[20px] font-semibold text-[#0A2342] line-clamp-2 min-h-14">
         {app.title}
       </h3>
 
