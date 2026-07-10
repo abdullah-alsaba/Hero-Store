@@ -37,7 +37,12 @@ const TrendingApps = () => {
       <div className="flex justify-center mt-14">
         <Link
           to="/apps"
-          className="btn bg-[#7C4DFF] hover:bg-[#6A3EF5] border-none text-white px-10 rounded-md shadow-none"
+          className="inline-flex h-12 items-center justify-center rounded-lg
+             bg-linear-to-r from-[#7C3AED] to-[#A855F7]
+             px-8 text-white font-medium
+             shadow-lg shadow-purple-500/20
+             transition-all duration-300
+             hover:scale-[1.03] hover:shadow-purple-500/30"
         >
           Show All
         </Link>
