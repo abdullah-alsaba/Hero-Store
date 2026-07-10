@@ -1,24 +1,12 @@
 import { Link } from "react-router";
-import { useEffect, useState } from "react";
+
 import AppCard from "../Ui/Apps/AppCard";
 
 import Loader from "../Shared/Loader/Loader"
+import useAppsFetch from "../../Hooks/useAppsFetch";
 
 const TrendingApps = () => {
-    const [apps, setApps] = useState([]);
-    
-    const [loading, setLoading]= useState(true) 
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/data.json");
-      const data = await res.json();
-        setApps(data);
-        setLoading(false)
-    };
-
-    fetchData();
-  }, []);
+   const { apps, loading } = useAppsFetch();
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-20">

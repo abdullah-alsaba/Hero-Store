@@ -1,24 +1,12 @@
 // import React from 'react';
-import { useEffect, useState } from "react";
 import Loader from "../../Components/Shared/Loader/Loader.jsx";
 import AppCard from "../../Components/Ui/Apps/AppCard.jsx";
 import { CiSearch } from "react-icons/ci";
+import useAppsFetch from "../../Hooks/useAppsFetch.jsx";
 
 const Apps = () => {
-  const [apps, setApps] = useState([]);
-
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/data.json");
-      const data = await res.json();
-      setApps(data);
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
+ 
+    const {apps, loading}=useAppsFetch()
 
   return (
     <div className="max-w-7xl mx-auto px-6">
@@ -34,7 +22,8 @@ const Apps = () => {
 
       <div className="mt-4 flex justify-between">
         <h2 className="font-bold text-xl">({apps.length}) Apps Found</h2>
-        <div className="flex items-center gap-2 border border-gray-300 rounded-2xl" >
+              <div className="flex items-center gap-2 border border-gray-300 rounded-2xl px-2
+        " >
           <CiSearch />
         <input type="text" name="text" id="text" placeholder="Search Apps" />
         </div>
