@@ -10,6 +10,8 @@ import {
 import Download from "../../../assets/icon-downloads.png";
 import Reviews from "../../../assets/icon-review.png";
 import Ratings from "../../../assets/icon-ratings.png";
+import { useContext } from "react";
+import { InstalledAppsContext } from "../../../Context/InstalledAppsContextProvider/InstalledAppsContextProvider";
 
 const AppDataCard = ({ expectedApp }) => {
   const {
@@ -23,6 +25,22 @@ const AppDataCard = ({ expectedApp }) => {
     description,
     ratings,
   } = expectedApp;
+
+  const {install , setInstall
+}= useContext(InstalledAppsContext)
+
+  const existedApps =install.some((app)=>app.id===expectedApp.id)
+
+  const handelInstall=() => {
+    if (existedApps) {
+      alert("the app is already installed ")
+      return
+    } else {
+           setInstall([...install, expectedApp]);
+
+  }
+    
+  }
 
   // Show 5 star at the top
   const chartData = [...ratings].reverse();
@@ -89,7 +107,7 @@ const AppDataCard = ({ expectedApp }) => {
 
               {/* Install */}
 
-              <button className="mt-8 bg-[#08D693] hover:bg-[#07c182] transition text-white text-xl font-semibold px-8 py-3 rounded">
+              <button className="mt-8 bg-[#08D693] hover:bg-[#07c182] transition text-white text-xl font-semibold px-8 py-3 rounded" onClick={()=>{handelInstall()}}>
                 Install Now ({size} MB)
               </button>
             </div>
