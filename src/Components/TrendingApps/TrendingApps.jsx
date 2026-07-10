@@ -1,14 +1,49 @@
-// import React from 'react';
+import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import AppCard from "../Ui/Apps/AppCard";
 
 const TrendingApps = () => {
-    return (
-      <div>
-        <div className="max-w-7xl mx-auto px-6 mt-10">
-          <h1 className="text-center text-4xl font-bold mb-2">Trending Apps</h1>
-          <p className="text-center text-gray-400">Explore All Trending Apps on the Market developed by us</p>
-        </div>
+  const [apps, setApps] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("/data.json");
+      const data = await res.json();
+      setApps(data);
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <section className="max-w-7xl mx-auto px-6 py-20">
+      {/* Heading */}
+      <div className="text-center">
+        <h2 className="text-[52px] font-bold text-[#0A2342]">Trending Apps</h2>
+
+        <p className="mt-3 text-lg text-[#7A7A7A]">
+          Explore All Trending Apps on the Market developed by us
+        </p>
       </div>
-    );
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+        {apps.slice(0, 8).map((app) => (
+          <AppCard key={app.id} app={app} />
+        ))}
+      </div>
+
+      {/* Button */}
+      <div className="flex justify-center mt-14">
+        <Link
+          to="/apps"
+          className="btn bg-[#7C4DFF] hover:bg-[#6A3EF5] border-none text-white px-10 rounded-md shadow-none"
+        >
+          Show All
+        </Link>
+      </div>
+    </section>
+  );
 };
 
 export default TrendingApps;
