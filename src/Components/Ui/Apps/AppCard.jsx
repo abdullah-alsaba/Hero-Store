@@ -1,9 +1,14 @@
 import Download from "../../../assets/icon-downloads.png";
+import { Link } from "react-router";
+
 import Rating from "../../../assets/icon-ratings.png";
 
 const AppCard = ({ app }) => {
   return (
-    <div className="bg-white border border-[#ECECEC] rounded-lg p-4 hover:shadow-lg transition duration-300">
+    <Link
+      to={`/apps/${app.id}`}
+      className="bg-white border border-[#ECECEC] rounded-lg p-4 hover:shadow-lg transition duration-300"
+    >
       {/* Image */}
       <div className="aspect-square overflow-hidden rounded-md bg-[#F3F3F3]">
         <img
@@ -30,7 +35,7 @@ const AppCard = ({ app }) => {
           {app.ratingAvg}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

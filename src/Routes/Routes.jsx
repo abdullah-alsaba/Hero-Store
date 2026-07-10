@@ -4,6 +4,7 @@ import InstalledApps from "../Pages/Installed Apps/InstalledApps";
 import Apps from "../Pages/Apps/Apps";
 import RootOutlet from "../Layout/RootOutlet";
 import Error from "../Pages/Error/Error";
+import Appdata from "../Pages/AppData/Appdata";
 
 
 
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
         path: "/apps",
         Component: Apps,
       },
+      {
+        path: "/apps/:appid", 
+        Component: Appdata, 
+      }
     ],
     errorElement: <Error></Error>
   },
